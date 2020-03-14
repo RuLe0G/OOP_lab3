@@ -40,16 +40,7 @@ namespace Oop_lab3
         {
             InitializeComponent();
 
-            GMapMarker marker_car = new GMapMarker(point)
-            {
-                Shape = new Image
-                {
-                    Width = 64, // ширина маркера
-                    Height = 64, // высота маркера
-                    ToolTip = "Pontiac Firebird 1977", // всплывающая подсказка
-                    Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Car.png")) // картинка
-                }
-            };
+            
 
            
 
@@ -73,7 +64,6 @@ namespace Oop_lab3
                 } 
             };
             
-            Map.Markers.Add(marker_car);
             Map.Markers.Add(marker);
             Map.Markers.Add(marker_path);
 
@@ -100,19 +90,47 @@ namespace Oop_lab3
 
         private void Map_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            PointLatLng point_ch = Map.FromLocalToLatLng((int)e.GetPosition(Map).X, (int)e.GetPosition(Map).Y);
-            GMapMarker marker_chelik = new GMapMarker(point)
+            if (Mouset1.IsChecked == true)
+            {
+                Mouset2.IsChecked = false;
+                PointLatLng point_ch = Map.FromLocalToLatLng((int)e.GetPosition(Map).X, (int)e.GetPosition(Map).Y);
+                GMapMarker marker_chelik = new GMapMarker(point)
+                {
+                    Shape = new Image
+                    {
+                        Width = 40, // ширина маркера
+                        Height = 40, // высота маркера                   
+                        Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Chelik.png")) // картинка
+                    }
+                };
+                marker_chelik.Position = point_ch;
+                Map.Markers.Add(marker_chelik);
+            }
+            if (Mouset2.IsChecked == true)
+            {
+                Mouset1.IsChecked = false;
+                
+
+            }
+            
+
+        }
+
+        private void Map_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            PointLatLng point_car = Map.FromLocalToLatLng((int)e.GetPosition(Map).X, (int)e.GetPosition(Map).Y);
+            GMapMarker marker_car = new GMapMarker(point)
             {
                 Shape = new Image
                 {
-                    Width = 40, // ширина маркера
-                    Height = 40, // высота маркера                   
-                    Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Chelik.png")) // картинка
+                    Width = 64, // ширина маркера
+                    Height = 64, // высота маркера
+                    ToolTip = "Pontiac Firebird 1977", // всплывающая подсказка
+                    Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Car.png")) // картинка
                 }
             };
-            marker_chelik.Position = point_ch;
-            Map.Markers.Add(marker_chelik);
-
+            marker_car.Position = point_car;
+            Map.Markers.Add(marker_car);
         }
     }
 }

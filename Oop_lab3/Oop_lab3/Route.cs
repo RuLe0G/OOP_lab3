@@ -8,30 +8,29 @@ using GMap.NET.WindowsPresentation;
 
 namespace Oop_lab3
 {
-    //class Route : MapObject
-    //{
+    class Route : MapObject
+    {
 
-    //    public List<PointLatLng> Points;
+        public List<PointLatLng> Points;
 
-    //    public Route(string title, List<PointLatLng> points)
-    //    {
-    //        Points = points;
-    //        base.Title = title;
-    //    }
+        public Route(string title, List<PointLatLng> points) : base(title)
+        {
+            Points = points;
+        }
 
-    //    public override double GetDistance(PointLatLng point)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public override double GetDistance(PointLatLng point)
+        {
+            throw new NotImplementedException();
+        }
 
-    //    public override PointLatLng GetFocus()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public override PointLatLng GetFocus()
+        {
+            throw new NotImplementedException();
+        }
 
-    //    public override GMapMarker GetMarker()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
+        public override GMapMarker GetMarker()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

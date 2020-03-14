@@ -8,28 +8,29 @@ using GMap.NET.WindowsPresentation;
 
 namespace Oop_lab3
 {
-    //class Area : MapObject
-    //{
-    //    public List<PointLatLng> Points;
+    class Area :MapObject
+    {
+        public List<PointLatLng> Points;
 
-    //    public Area(string title, List<PointLatLng> points)
-    //    {
-    //        Points = points;
-    //        base.Title = title;
-    //    }
-    //    public override double GetDistance(PointLatLng point)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public Area(string title, List<PointLatLng> points) :base(title)
+        {
+            Points = points;
+           
+        }
 
-    //    public override PointLatLng GetFocus()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public override double GetDistance(PointLatLng point)
+        {
+            throw new NotImplementedException();
+        }
 
-    //    public override GMapMarker GetMarker()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
+        public override PointLatLng GetFocus()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override GMapMarker GetMarker()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

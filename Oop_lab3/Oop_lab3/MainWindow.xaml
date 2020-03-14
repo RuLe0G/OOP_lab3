@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:Oop_lab3"
         xmlns:WindowsPresentation="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation" x:Class="Oop_lab3.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="250,0,-0.4,0">
-        <WindowsPresentation:GMapControl Name="Map" Loaded="MapLoaded"  MouseLeftButtonDown="Map_MouseLeftButtonDown"/> 
+        Title="MainWindow" Height="450" Width="800" Icon="Resources/Kit.jpg">
+    <Grid>
+      
+        <WindowsPresentation:GMapControl Name="Map" Loaded="MapLoaded"  MouseLeftButtonDown="Map_MouseLeftButtonDown" Width="581" Height="419" HorizontalAlignment="Right" MouseRightButtonDown="Map_MouseRightButtonDown"/>
+        
+        <CheckBox x:Name="Mouset1" Content="Режим создания" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="116"/>
+        <CheckBox x:Name="Mouset2" Content="Режим поиска" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="116"/>
+        <Label Content="Режимы курсора:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="116"/>
+
     </Grid>
 </Window>

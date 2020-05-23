@@ -7,6 +7,7 @@ using GMap.NET;
 using GMap.NET.WindowsPresentation;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Device.Location;
 
 namespace Oop_lab3
 {
@@ -22,12 +23,15 @@ namespace Oop_lab3
 
         public override double GetDistance(PointLatLng point)
         {
-            throw new NotImplementedException();
+            GeoCoordinate c1 = new GeoCoordinate(point.Lat, point.Lng);
+            GeoCoordinate c2 = new GeoCoordinate(Point.Lat, Point.Lng);
+
+            return c1.GetDistanceTo(c2);
         }
 
         public override PointLatLng GetFocus()
         {
-            throw new NotImplementedException();
+            return Point;
         }
 
         public override GMapMarker GetMarker()
@@ -37,8 +41,8 @@ namespace Oop_lab3
             {
                 Shape = new Image
                 {
-                    Width = 40, // ширина маркера
-                    Height = 40, // высота маркера                   
+                    Width = 32, // ширина маркера
+                    Height = 32, // высота маркера                   
                     Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Chelik.png")) // картинка
                 }
             };

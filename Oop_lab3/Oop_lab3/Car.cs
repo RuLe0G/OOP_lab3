@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +22,15 @@ namespace Oop_lab3
 
         public override double GetDistance(PointLatLng point)
         {
-            throw new NotImplementedException();
+            GeoCoordinate c1 = new GeoCoordinate(point.Lat, point.Lng);
+            GeoCoordinate c2 = new GeoCoordinate(Point.Lat, Point.Lng);
+
+            return c1.GetDistanceTo(c2);
         }
 
         public override PointLatLng GetFocus()
         {
-            throw new NotImplementedException();
+            return Point;
         }
 
         public override GMapMarker GetMarker()
@@ -35,10 +39,10 @@ namespace Oop_lab3
             {
                 Shape = new Image
                 {
-                    Width = 64, // ширина маркера
-                    Height = 64, // высота маркера
+                    Width = 40, // ширина маркера
+                    Height = 40, // высота маркера
                     ToolTip = Title, // всплывающая подсказка
-                    Source = new BitmapImage(new Uri("pack://application:,,,/Resources/marker.png")) // картинка
+                    Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Car.png")) // картинка
                 }
             };
             marker_car.Position = Point;

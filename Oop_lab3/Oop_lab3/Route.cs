@@ -1,36 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
 using GMap.NET;
 using GMap.NET.WindowsPresentation;
+
 
 namespace Oop_lab3
 {
     class Route : MapObject
     {
 
-        public List<PointLatLng> Points;
+        private List<PointLatLng> Points;
 
         public Route(string title, List<PointLatLng> points) : base(title)
         {
-            Points = points;
+            Points = new List<PointLatLng>();
+            foreach (PointLatLng p in points)
+            {
+
+                Points.Add(p);
+            }
         }
 
-        public override double GetDistance(PointLatLng point)
+        public override double GetDistance(PointLatLng ent_point)
         {
-            throw new NotImplementedException();
+            double distance = Double.MaxValue;
+            foreach (PointLatLng point in Points)
+            {
+                GeoCoordinate c1 = new GeoCoordinate(point.Lat, point.Lng);
+                GeoCoordinate c2 = new GeoCoordinate(ent_point.Lat, ent_point.Lng);
+                if (distance > c1.GetDistanceTo(c2))
+                {
+                    distance = c1.GetDistanceTo(c2);
+                }
+            }
+            return distance;
         }
 
         public override PointLatLng GetFocus()
         {
-            throw new NotImplementedException();
+            return Points[0];
         }
 
         public override GMapMarker GetMarker()
         {
-            throw new NotImplementedException();
+            GMapMarker marker_route = new GMapRoute(Points)
+            {
+                Shape = new Path
+                {
+                    Stroke = Brushes.DarkBlue, // цвет обводки
+                    Fill = Brushes.DarkBlue, // цвет заливки
+                    StrokeThickness = 4 // толщина обводки
+                }
+            };
+            return marker_route;
         }
     }
 }

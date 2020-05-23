@@ -258,6 +258,14 @@ namespace Oop_lab3
                 lb_search.SelectedIndex = -1;
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Map.Markers.Clear();
+            MOCollection.Clear();
+            Found.Clear();
+            lb_search.Items.Clear();
+        }
     }
 
 }

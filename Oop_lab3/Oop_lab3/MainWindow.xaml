@@ -22,7 +22,7 @@
             <ComboBoxItem Content="2. Маркер"/>
             <ComboBoxItem Content="3. Зона"/>
             <ComboBoxItem Content="4. Маршрут"/>
-           
+
         </ComboBox>
         <TextBox x:Name="tb_name" HorizontalAlignment="Left" Height="23" Margin="603,144,0,0" TextWrapping="Wrap" Text="no name " VerticalAlignment="Top" Width="164" GotFocus="tb_name_GotFocus" LostFocus="tb_name_LostFocus" Opacity="0.5"/>
         <Button x:Name="btn_ok" Content="OK" HorizontalAlignment="Left" Margin="603,172,0,0" VerticalAlignment="Top" Width="75" Height="41" Click="btn_ok_Click"/>
@@ -39,5 +39,6 @@
             <ListBoxItem Content="YandexMap"/>
             <ListBoxItem Content="WikiMapiaMap"/>
         </ComboBox>
+        <Button Content="Чистить" HorizontalAlignment="Left" Margin="707,0,0,0" VerticalAlignment="Top" Width="69" Click="Button_Click" Height="21"/>
     </Grid>
 </Window>

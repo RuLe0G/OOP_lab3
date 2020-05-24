@@ -13,9 +13,9 @@
 
         <Label Content="Добавить" HorizontalAlignment="Left" Margin="592,91,0,0" VerticalAlignment="Top" Width="184" Height="130" BorderBrush="Black" BorderThickness="1"/>
         <Label Content="Поиск" HorizontalAlignment="Left" Margin="593,226,0,-1" VerticalAlignment="Top" Width="184" Height="195" BorderBrush="Black" BorderThickness="1"/>
-        <Label Content="Режимы курсора:" HorizontalAlignment="Left" Margin="592,21,0,0" VerticalAlignment="Top" Width="184" Height="65" BorderBrush="Black" BorderThickness="1"/>
-        <CheckBox x:Name="Mouset1" Content="Режим создания" HorizontalAlignment="Left" Margin="603,47,0,0" VerticalAlignment="Top" Width="116" Checked="Mouset1_Checked"/>
-        <CheckBox x:Name="Mouset2" Content="Режим поиска" HorizontalAlignment="Left" Margin="603,67,0,0" VerticalAlignment="Top" Width="116" Checked="Mouset2_Checked"/>
+        <Label Content="Режимы курсора:" HorizontalAlignment="Left" Margin="592,21,0,0" VerticalAlignment="Top" Width="184" Height="65" BorderBrush="Black" BorderThickness="1" />
+        <CheckBox x:Name="Mouset1" Content="Режим создания" HorizontalAlignment="Left" Margin="603,47,0,0" VerticalAlignment="Top" Width="116" Checked="Mouset1_Checked" Unchecked="Mouset_Unchecked"/>
+        <CheckBox x:Name="Mouset2" Content="Режим поиска" HorizontalAlignment="Left" Margin="603,67,0,0" VerticalAlignment="Top" Width="116" Checked="Mouset2_Checked" Unchecked="Mouset_Unchecked"/>
         <ComboBox x:Name="cb_add" HorizontalAlignment="Left" Margin="603,117,0,0" VerticalAlignment="Top" Width="164" SelectedIndex="0">
             <ComboBoxItem Content="0. Чел"/>
             <ComboBoxItem Content="1. Машина"/>

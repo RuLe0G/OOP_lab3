@@ -94,8 +94,17 @@ namespace Oop_lab3
             }
             if (isNewTitle == true)
             {
+
                 MOCollection.Add(mapObject);
                 Map.Markers.Add(mapObject.GetMarker());
+                Found.Clear();
+                lb_search.Items.Clear();
+                foreach (MapObject MO in MOCollection)
+                {
+                    lb_search.Items.Add(MO.Title);
+                    Found.Add(MO);
+                }
+
             }
             else MessageBox.Show("Введите другое название. Это уже используется");
         end:
@@ -110,6 +119,8 @@ namespace Oop_lab3
 
         private void Map_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+           
+
             PointLatLng point = Map.FromLocalToLatLng((int)e.GetPosition(Map).X, (int)e.GetPosition(Map).Y);
 
             if (Mouset1.IsChecked == true)
@@ -133,7 +144,6 @@ namespace Oop_lab3
 
                 foreach (MapObject MO in MOCollection)
                 {
-                    if (MO.Title.Contains(tb_search.Text))
                         lb_search.Items.Add((int)MO.GetDistance(point) + "Метров до " + MO.Title + " ");
                 }
 
@@ -155,10 +165,21 @@ namespace Oop_lab3
                 MessageBox.Show("Объекты не найдены");
             }else
             {
+                    lb_search.Items.Clear();
                 foreach (MapObject mapObject in Found)
                 {
+
                     lb_search.Items.Add(mapObject.Title);
                 }
+            }
+        }
+
+        private void lb_search_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lb_search.SelectedIndex != -1)
+            {
+                Map.Position = Found[lb_search.SelectedIndex].GetFocus();
+                lb_search.SelectedIndex = -1;
             }
         }
 
@@ -224,11 +245,13 @@ namespace Oop_lab3
 
         private void Mouset1_Checked(object sender, RoutedEventArgs e)
         {
+            Map.CanDragMap = false;
             Mouset2.IsChecked = false;
         }
 
         private void Mouset2_Checked(object sender, RoutedEventArgs e)
         {
+            Map.CanDragMap = false;
             Mouset1.IsChecked = false;
         }
 
@@ -238,6 +261,14 @@ namespace Oop_lab3
             {
                 tb_search.Opacity = 0.5;
                 tb_search.Text = "Поиск ";
+
+                lb_search.Items.Clear();
+
+                foreach (MapObject mapObject in MOCollection)
+                {
+                    lb_search.Items.Add(mapObject.Title);
+                    Found.Add(mapObject);
+                }
             }
         }
 
@@ -250,21 +281,21 @@ namespace Oop_lab3
 
         }
 
-        private void lb_search_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (lb_search.SelectedIndex != -1)
-            {
-                Map.Position = Found[lb_search.SelectedIndex].GetFocus();
-                lb_search.SelectedIndex = -1;
-            }
-        }
-
+       
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Map.Markers.Clear();
             MOCollection.Clear();
             Found.Clear();
             lb_search.Items.Clear();
+        }
+
+        private void Mouset_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (Mouset1.IsChecked == false & Mouset2.IsChecked == false)
+            {
+                Map.CanDragMap = true;
+            }
         }
     }
 
